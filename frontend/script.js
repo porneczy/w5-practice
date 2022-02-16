@@ -98,7 +98,7 @@ g.myMethod()
 }
 window.addEventListener("load", loadEvent) */
 
-
+/* 
 let h = {
     anotherMethod: function (text){
         return `You sent the following argument to this method: ${text}`
@@ -107,5 +107,84 @@ let h = {
 
 let i = h.anotherMethod("sdasdaasd")
 console.log(i)
-console.log(h.anotherMethod("kurva easy"));
+console.log(h.anotherMethod("kurva easy")); */
+
+// metódus: ha elmentünk egy kulcsra egy függyént az a metódus
+
+/* let myString = "mikkamakka";
+let mySecondString = myString;
+let myThirdString = "mikkamakka";
+console.log(myString);
+console.log(mySecondString);
+console.log(myString === mySecondString);
+console.log(myString === myThirdString); */
+
+
+/* let myObject = {
+    myString : "mikkamakka"
+}
+let mySecondObject = myObject;
+let myThirdObject = {
+    myString : "mikkamakka"
+}
+ console.log(myThirdObject === myObject);
+
+mySecondObject.myString = "dömdömdöm"; */
+
+
+//let myFourthObject = {...myObject}  //másol egy másik objektumot, és ezt ha megyáltoztatod akkor a myObjectbe nem lesz változás
+//myFourthObject.myString = "Vacskamati"
+//console.log(myObject.myString);
+//console.log(myFourthObject.myString);
+//primitivek meg az oibjektumok máshogy viselkednek összehasonlitásnál, memória szinten máshol tárolódnak el
+
+/* console.log("" === "");
+console.log({} === {}); */
+//amint létrehozunk egy objektumot, egyből egy új ujbjektum lesz 
+
+/* window.addEventListener("load", function(){
+    console.log("betöltödött");
+})
+ */
+
+// hasznosabb változókba menteni a fügyényeket
+function loadEvent(){
+    console.log("betöltődött");
+    let rootElement = document.getElementById("root")
+    /* let card = function(movieRecived){
+        return `<div class="card">
+            <h2>${movieRecived.title}</h2>
+            <h4>${movieRecived.year}</h4>
+            <h5>${movieRecived.rate}</h5>
+        </div>`
+    }  */
+    let card2 = function(title, year, rate){
+        return `<div class="card">
+            <h2>${title}</h2>
+            <h4>${year}</h4>
+            <h5>${rate}</h5>
+        </div>`
+    } 
+    /* for (const movieSend of movies) {
+        rootElement.insertAdjacentHTML("beforeend", card(movieSend))
+    } */
+    let anotherFavouriteMovie = {
+        title: "The Last Scout Boy",
+        year: 1991,
+        rate: 7.0
+    }
+    rootElement.insertAdjacentHTML("beforeend", card2(anotherFavouriteMovie.title, anotherFavouriteMovie.year, anotherFavouriteMovie.rate))
+    for (const movieSend of movies) {
+        rootElement.insertAdjacentHTML("beforeend", card2(movieSend.title, movieSend.year, movieSend.rate))
+    }
+}
+window.addEventListener("load", loadEvent);
+
+//kibőviteni úgy hogy kerüljön bele html-be css-el az "year" és "rate"
+// külön html tagekbe legyenek
+//3 oszlopos flex formázás
+//egész root divben a kártyák 3 oszlopban és flexel
+
+//mintha kártyák lennének
+//5-kor tali
 
